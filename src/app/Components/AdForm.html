@@ -1,0 +1,71 @@
+<!-- Name: <input #ipName type="text" name="name" [value]="YourName" >
+  <br>
+  Category:<select #ipCategory >
+  <option *ngFor="let item of Category">
+    {{item}}</option>
+
+</select>
+  <br>
+  Description: <input #ipDesc type="text" name="description" >
+  <br>
+  <input type="button" value="Submit" (click)="AdDetails_All(ipName.value,ipCategory.value,ipDesc.value)"> 
+  <br><br><br>
+
+ <br><br>
+  <table border="2">
+  <tr>
+   <td>{{name2}}</td>
+   <td>{{cat2}}</td>
+   <td>{{desc2}}</td>
+  </tr>
+  </table>
+  
+<table class="table table-striped" border="2">
+        <th>Name</th><th>Quantity</th><th>Price</th><th>Category</th>
+        <tr *ngFor="let row of obj">
+            <td>{{row.Name}}</td> 
+            <td>{{row.Category}}</td>
+            <td>{{row.Description}}</td>
+        </tr>  
+    </table> -->
+<!--- -->
+
+<div class="container">
+<h3>{{title}}</h3>
+
+    <div class="form-group row">
+        <div class="col-md-3">
+            <label>Name</label>
+            <input #ipName type="text" name="name" [value]="YourName" class="form-control">
+
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-md-3">
+            <label>Category:</label>
+            <select #ipCategory class="form-control" >
+            <option *ngFor="let item of Category">{{item}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-md-3">
+            <label>Description: </label>
+              <input #ipDesc type="text" name="description" class="form-control">
+
+            
+        </div>
+    </div>
+      <input  #childText (click)="onChange(ipName.value,ipCategory.value,ipDesc.value)" type="submit" value="submit"> 
+
+<br><br>
+     <!-- <table #opFormTable class="table table-striped" border="2" >
+        <th>Name</th><th>Category</th><th>Description</th><th>Action</th>
+        <tr *ngFor="let row of obj">
+            <td>{{row.Name}}</td> 
+            <td>{{row.Category}}</td>
+            <td>{{row.Description}}</td>
+        </tr>  
+    </table> -->
+
+</div>

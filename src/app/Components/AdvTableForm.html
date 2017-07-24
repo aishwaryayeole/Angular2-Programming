@@ -1,0 +1,20 @@
+
+<div class="container">
+
+<!-- <input type="text" [value]="appTextBox | json">  -->
+<input #searchAd type="text" [(ngModel)]="queryString" placeholder="Type to Search...">
+
+<table #opFormTable class="table table-striped" border="2" >
+        
+        <th>Name</th><th>Category</th><th>Description</th><th>Action</th>
+        <tr *ngFor="let item of getAdFromService() | FilterPipe : searchAd.value">   
+            <td>{{item.newName}}</td> 
+            <td>{{item.newCat}}</td>
+            <td>{{item.newDesc}}</td>
+            <td><a (click)="advService.deleteAdvertisement(item)" href="#">Delete</a></td>
+        </tr>  
+</table>
+
+
+
+</div>
