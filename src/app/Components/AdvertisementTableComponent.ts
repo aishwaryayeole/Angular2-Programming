@@ -1,6 +1,6 @@
 import { Component,Pipe,PipeTransform,NgModule } from '@angular/core';
 import { AdvService} from '../Services/AdvService';
-
+import {Router,RouterModule}  from '@angular/router';
 @Component({
 selector: 'my-adv-table',
 templateUrl: `./AdvTableForm.html`,
@@ -9,8 +9,10 @@ templateUrl: `./AdvTableForm.html`,
 
 export class AdvertisementTableComponent{
 
+
+    constructor(private advService:AdvService, private router:Router){}
     //appTextBox:any; 
-    adname:any;
+   /* adname:any;
     advList:{newName:any, newCat:string, newdesc:any}[] = [];
     advPush(childAd:any)
     {
@@ -20,15 +22,19 @@ export class AdvertisementTableComponent{
     {
     let index:number= delAd.index;
     this.advList.splice(index,1);
-    }
+    } */
 
-    constructor(private advService:AdvService){}
     getAdFromService()
     {
     return  this.advService.getAllAdvertises();
     }
 
-
+     editAd(adProductID:any)
+    {
+            console.log("In Edit Ad function");
+            this.router.navigate(['/Edit/adProductID']);
+            console.log(adProductID);
+    }
    
 
 

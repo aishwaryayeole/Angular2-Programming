@@ -22,7 +22,7 @@ export class FormBuilderAdvFormComponent{
     this.AdForm= this.formBuilder.group({
     name: [null, [Validators.required, Validators.minLength(4), Validators.maxLength(8)]],
     description: [] });
-}
+    }
 
     onsubmit()
 {

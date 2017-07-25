@@ -3,12 +3,15 @@ import { AdvertisementTableComponent } from './Components/AdvertisementTableComp
 import { AdvService} from'./Services/AdvService';
 @Component({
   selector: 'my-app',
-  template: `<my-ad (childEvent)=advService.advPush1($event);></my-ad> 
-  <my-adv-table></my-adv-table> `,
+  template: `<router-outlet></router-outlet>`,
   providers: [AdvService],
 })
 export class AppComponent  
 {
+  constructor(private advService:AdvService) {
+
+  }
+
   //currentAdvObj:any;
   //advList:any[];
   //advList:{newName:any, newCat:any, newdesc:any}[] = [];
@@ -21,8 +24,6 @@ export class AppComponent
     //this.advService.advPush1(newAd);
 
   }
-
-  constructor(private advService:AdvService) {}
 
 
 

@@ -1,4 +1,6 @@
 import { Component,EventEmitter } from '@angular/core';
+import { AdvService} from'../Services/AdvService';
+
 @Component({
 selector: 'my-ad',
 templateUrl: `./AdForm.html`,
@@ -10,8 +12,8 @@ export class AdvertisementFormComponent{
     //arrCat =new Array();
     //arrDesc =new Array();
     YourName:string="Aishwarya";
-    Category:string[] =["Car","Mobile","Bike","Real Estate","Camera","Books","Laptops"];
-
+    Category:string[] =["Clothes","Mobile","Furniture","Real Estate"];
+    id:number=0;
     name2:any;
     cat2:any;
     desc2:any;
@@ -30,7 +32,8 @@ export class AdvertisementFormComponent{
         this.cat2=cat;
         this.desc2=desc;*/
 
-        this.obj.push({Name:name,
+        this.obj.push({
+                        Name:name,
                     Category : cat,
                      Description: desc,
                 });
@@ -43,18 +46,23 @@ export class AdvertisementFormComponent{
 
     }
 
+    constructor(private advService:AdvService) {}
+
     public childEvent= new EventEmitter<any>();
     onChange(name:any,cat:string,desc:any) 
     { 
 
         let newobj =
         {
+            newid: this.id++,
             newName:name,
             newCat:cat,
             newDesc:desc
         }
 
-       this.childEvent.emit(newobj);
+      // this.childEvent.emit(newobj);
+       this.advService.advPush1(newobj);
+        this.advService.postAd();
 
     } 
 
